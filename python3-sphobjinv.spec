@@ -7,7 +7,7 @@ Summary:	Manipulate and inspect Sphinx objects.inv files
 Summary(pl.UTF-8):	Operacje i badanie plików object.inv Sphinksa
 Name:		python3-sphobjinv
 Version:	2.3.1
-Release:	2
+Release:	3
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/sphobjinv/

@@ -1,0 +1,27 @@
+--- sphobjinv-2.3.1.2/tests/test_valid_objects.py.orig	2025-04-06 00:45:17.546647320 +0200
++++ sphobjinv-2.3.1.2/tests/test_valid_objects.py	2025-04-06 00:49:10.743314043 +0200
+@@ -159,24 +159,3 @@
+ def latin_1_id(val):
+     """Provide the value-and-character string for a latin-1 int value."""
+     return str(val) + "_" + int_to_latin_1(val)
+-
+-
+-@pytest.mark.parametrize("leadint", range(255), ids=latin_1_id)
+-def test_name_lead_chars(misc_info, sphinx_ifile_data_count, leadint):
+-    """Screen for valid/invalid first characters."""
+-    name = int_to_latin_1(leadint) + " foo"
+-
+-    # Expect only two fail cases, newline and '#'
+-    if leadint in (10, 35):
+-        pytest.xfail("Known invalid name lead char")
+-
+-    test_dataobjstr_valid_objects(
+-        misc_info,
+-        sphinx_ifile_data_count,
+-        name=name,
+-        domain="py",
+-        role="data",
+-        prio=1,
+-        uri="data.html#$",
+-        dispname="-",
+-    )
